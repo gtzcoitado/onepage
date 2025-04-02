@@ -1,0 +1,165 @@
+{
+    "header": {
+      "logo": "Treact",
+      "about": "Sobre",
+      "blog": "Blog",
+      "pricing": "Preços",
+      "contact": "Contato",
+      "login": "Login",
+      "signup": "Cadastre-se"
+    },
+    "hero": {
+      "title": "Templates React Modernos, Só Para Você.",
+      "subtitle": "Nossos templates são fáceis de configurar, entender e personalizar. Totalmente modulares com uma variedade de páginas e componentes.",
+      "getStarted": "Começar",
+      "watchVideo": "Assistir Vídeo"
+    },
+    "trustedCustomers": "Nossos clientes confiáveis",
+  
+    "features": {
+      "heading": "Recursos Incríveis",
+      "subtitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore e dolore magna aliqua.",
+      "items": [
+        {
+          "title": "Seguro",
+          "description": "Nós lidamos apenas com fornecedores que oferecem segurança de alto nível."
+        },
+        {
+          "title": "Suporte 24/7",
+          "description": "Nossa equipe está disponível 24 horas por dia, 7 dias por semana, para ajudá-lo."
+        },
+        {
+          "title": "Customizável",
+          "description": "Personalize cada detalhe para atender às suas necessidades específicas."
+        },
+        {
+          "title": "Confiável",
+          "description": "Processos robustos que garantem a estabilidade e confiança do sistema."
+        },
+        {
+          "title": "Rápido",
+          "description": "Alta performance para que você obtenha resultados de forma imediata."
+        },
+        {
+          "title": "Fácil",
+          "description": "Interface simples e intuitiva para qualquer pessoa usar sem complicações."
+        }
+      ]
+    },
+  
+    "aboutSection": {
+      "trackRecord": "Nosso histórico",
+      "heading": "Fazemos isso desde 1999.",
+      "subtitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore e dolore magna aliqua. Em minim veniam, quis nostrud exercitation ullamco laboriss nisi.",
+      "stats": [
+        {
+          "label": "Clientes",
+          "value": "2828+"
+        },
+        {
+          "label": "Projetos",
+          "value": "3891+"
+        },
+        {
+          "label": "Prêmios",
+          "value": "1000+"
+        }
+      ]
+    },
+  
+    "blogSection": {
+      "heading": "Nossos Vídeos",
+      "subtitle": "Aqui é uma seção com capas de vídeos do YouTube. Ao clicar na imagem, você será direcionado ao vídeo.",
+      "items": [
+        {
+          "title": "Veg Mixer",
+          "description": "Tomate e vegetais frescos.",
+          "image": "https://via.placeholder.com/300x200.png?text=Veg+Mixer",
+          "link": "https://youtube.com/watch?v=abc123"
+        },
+        {
+          "title": "Macaroni",
+          "description": "Cheese Pizza style dish.",
+          "image": "https://via.placeholder.com/300x200.png?text=Macaroni",
+          "link": "https://youtube.com/watch?v=def456"
+        },
+        {
+          "title": "Nelli",
+          "description": "Hambúrguer & Batatas Fritas.",
+          "image": "https://via.placeholder.com/300x200.png?text=Nelli",
+          "link": "https://youtube.com/watch?v=ghi789"
+        },
+        {
+          "title": "Jalapeno Poppers",
+          "description": "Crispy Soybeans.",
+          "image": "https://via.placeholder.com/300x200.png?text=Jalapeno+Poppers",
+          "link": "https://youtube.com/watch?v=jkl012"
+        },
+        {
+          "title": "Cajun Chicken",
+          "description": "Frango apimentado.",
+          "image": "https://via.placeholder.com/300x200.png?text=Cajun+Chicken",
+          "link": "https://youtube.com/watch?v=mno345"
+        },
+        {
+          "title": "Chilli Cake",
+          "description": "Uma sobremesa doce e picante.",
+          "image": "https://via.placeholder.com/300x200.png?text=Chilli+Cake",
+          "link": "https://youtube.com/watch?v=pqr678"
+        }
+      ]
+    },
+  
+    "pricing": {
+      "heading": "Planos Flexíveis",
+      "subtitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore e dolore magna aliqua.",
+      "plans": [
+        {
+          "title": "Pessoal",
+          "price": "R$17.99",
+          "period": "mês",
+          "description": "Ideal para blogs pessoais",
+          "features": ["30 Templates", "2 Landing Pages", "Suporte Básico"],
+          "button": "Comprar Agora"
+        },
+        {
+          "title": "Negócios",
+          "price": "R$37.99",
+          "period": "mês",
+          "description": "Perfeito para sites de produção",
+          "features": ["80 Landing Pages", "Recursos Avançados", "Prioridade no Suporte"],
+          "button": "Comprar Agora"
+        },
+        {
+          "title": "Empresarial",
+          "price": "R$57.99",
+          "period": "mês",
+          "description": "Excelente para grandes empresas",
+          "features": ["100+ Landing Pages", "Ferramentas Premium", "Suporte Dedicado"],
+          "button": "Comprar Agora"
+        }
+      ]
+    },
+  
+    "contactSection": {
+      "title": "Entre em contato",
+      "subtitle": "Sinta-se à vontade para falar conosco. Adoramos ouvir suas ideias!",
+      "placeholderName": "Seu Nome Completo",
+      "placeholderEmail": "Seu E-mail",
+      "placeholderSubject": "Assunto",
+      "placeholderMessage": "Sua mensagem aqui...",
+      "sendButton": "Enviar"
+    },
+  
+    "footerSection": {
+      "links": {
+        "home": "Início",
+        "about": "Sobre",
+        "blog": "Blog",
+        "pricing": "Preços",
+        "contact": "Contato"
+      },
+      "copyright": "© 2025 - Todos os direitos reservados."
+    }
+  }
+  

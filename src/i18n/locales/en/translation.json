@@ -1,0 +1,159 @@
+{
+    "header": {
+      "logo": "Treact",
+      "about": "About",
+      "blog": "Blog",
+      "pricing": "Pricing",
+      "contact": "Contact",
+      "login": "Login",
+      "signup": "Sign Up"
+    },
+    "hero": {
+      "title": "Beautiful React Templates for you.",
+      "subtitle": "Our templates are easy to setup, understand and customize. Fully modular with a variety of pages and components.",
+      "placeholderEmail": "Your Email",
+      "getStarted": "Get Started"
+    },
+    "trustedCustomers": "Our Trusted Customers",
+    "features": {
+      "heading": "Amazing Features",
+      "subtitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "items": [
+        {
+          "title": "Secure",
+          "description": "We only deal with vendors that provide top-notch security."
+        },
+        {
+          "title": "24/7 Support",
+          "description": "Our team is available around the clock to assist you."
+        },
+        {
+          "title": "Customizable",
+          "description": "Customize every detail to suit your specific needs."
+        },
+        {
+          "title": "Reliable",
+          "description": "Robust processes ensuring system stability and trust."
+        },
+        {
+          "title": "Fast",
+          "description": "High performance for immediate results."
+        },
+        {
+          "title": "Easy",
+          "description": "Simple and intuitive interface for everyone."
+        }
+      ]
+    },
+    "aboutSection": {
+      "trackRecord": "Our Track Record",
+      "heading": "We have been doing this since 1999.",
+      "subtitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. En minim veniam, quis nostrud exercitation ullamco.",
+      "stats": [
+        {
+          "label": "Clients",
+          "value": "2828+"
+        },
+        {
+          "label": "Projects",
+          "value": "3891+"
+        },
+        {
+          "label": "Awards",
+          "value": "1000+"
+        }
+      ]
+    },
+    "blogSection": {
+      "heading": "Check Out Our Videos",
+      "subtitle": "This section has YouTube video thumbnails. Clicking on an image will take you to the video.",
+      "items": [
+        {
+          "title": "Veg Mixer",
+          "description": "Tomato salad with fresh veggies.",
+          "image": "https://via.placeholder.com/300x200.png?text=Veg+Mixer",
+          "link": "https://youtube.com/watch?v=abc123"
+        },
+        {
+          "title": "Macaroni",
+          "description": "Cheese Pizza style dish.",
+          "image": "https://via.placeholder.com/300x200.png?text=Macaroni",
+          "link": "https://youtube.com/watch?v=def456"
+        },
+        {
+          "title": "Nelli",
+          "description": "Hamburger & Fries.",
+          "image": "https://via.placeholder.com/300x200.png?text=Nelli",
+          "link": "https://youtube.com/watch?v=ghi789"
+        },
+        {
+          "title": "Jalapeno Poppers",
+          "description": "Crispy Soybeans.",
+          "image": "https://via.placeholder.com/300x200.png?text=Jalapeno+Poppers",
+          "link": "https://youtube.com/watch?v=jkl012"
+        },
+        {
+          "title": "Cajun Chicken",
+          "description": "A spicy delight.",
+          "image": "https://via.placeholder.com/300x200.png?text=Cajun+Chicken",
+          "link": "https://youtube.com/watch?v=mno345"
+        },
+        {
+          "title": "Chilli Cake",
+          "description": "A hot and sweet treat.",
+          "image": "https://via.placeholder.com/300x200.png?text=Chilli+Cake",
+          "link": "https://youtube.com/watch?v=pqr678"
+        }
+      ]
+    },
+    "pricing": {
+      "heading": "Flexible Plans",
+      "subtitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "plans": [
+        {
+          "title": "Personal",
+          "price": "$17.99",
+          "period": "month",
+          "description": "Perfect for personal blogs",
+          "features": ["30 Templates", "2 Landing Pages", "Basic Support"],
+          "button": "Buy Now"
+        },
+        {
+          "title": "Business",
+          "price": "$37.99",
+          "period": "month",
+          "description": "Ideal for production websites",
+          "features": ["80 Landing Pages", "Advanced Features", "Priority Assistance"],
+          "button": "Buy Now"
+        },
+        {
+          "title": "Enterprise",
+          "price": "$57.99",
+          "period": "month",
+          "description": "Great for big companies",
+          "features": ["100+ Landing Pages", "Premium Tools", "Dedicated Support"],
+          "button": "Buy Now"
+        }
+      ]
+    },
+    "contactSection": {
+      "title": "Contact Us",
+      "subtitle": "Feel free to get in touch with us. We love hearing from you!",
+      "placeholderName": "Your Full Name",
+      "placeholderEmail": "Your Email Address",
+      "placeholderSubject": "Subject",
+      "placeholderMessage": "Your message here...",
+      "sendButton": "Send"
+    },
+    "footerSection": {
+      "links": {
+        "home": "Home",
+        "about": "About",
+        "blog": "Blog",
+        "pricing": "Pricing",
+        "contact": "Contact"
+      },
+      "copyright": "© 2025 - All rights reserved."
+    }
+  }
+  
