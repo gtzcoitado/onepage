@@ -1,159 +1,161 @@
 {
-    "header": {
-      "logo": "Treact",
-      "about": "Acerca",
-      "blog": "Blog",
-      "pricing": "Precios",
-      "contact": "Contacto",
-      "login": "Iniciar Sesión",
-      "signup": "Registrarse"
-    },
-    "hero": {
-      "title": "Hermosas plantillas React para ti.",
-      "subtitle": "Nuestras plantillas son fáciles de configurar, entender y personalizar. Totalmente modulares con una variedad de páginas y componentes.",
-      "placeholderEmail": "Tu Correo",
-      "getStarted": "Comenzar"
-    },
-    "trustedCustomers": "Nuestros clientes de confianza",
-    "features": {
-      "heading": "Características Asombrosas",
-      "subtitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      "items": [
-        {
-          "title": "Seguro",
-          "description": "Solo trabajamos con proveedores que ofrecen la máxima seguridad."
-        },
-        {
-          "title": "Soporte 24/7",
-          "description": "Nuestro equipo está disponible las 24 horas, todos los días, para ayudarte."
-        },
-        {
-          "title": "Personalizable",
-          "description": "Personaliza cada detalle para satisfacer tus necesidades específicas."
-        },
-        {
-          "title": "Confiable",
-          "description": "Procesos sólidos que garantizan la estabilidad y confianza del sistema."
-        },
-        {
-          "title": "Rápido",
-          "description": "Alto rendimiento para obtener resultados de inmediato."
-        },
-        {
-          "title": "Fácil",
-          "description": "Interfaz simple e intuitiva para cualquier persona."
-        }
-      ]
-    },
-    "aboutSection": {
-      "trackRecord": "Nuestro historial",
-      "heading": "Hemos estado haciendo esto desde 1999.",
-      "subtitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. En minim veniam, quis nostrud exercitation ullamco.",
-      "stats": [
-        {
-          "label": "Clientes",
-          "value": "2828+"
-        },
-        {
-          "label": "Proyectos",
-          "value": "3891+"
-        },
-        {
-          "label": "Premios",
-          "value": "1000+"
-        }
-      ]
-    },
-    "blogSection": {
-      "heading": "Mira nuestros Videos",
-      "subtitle": "Esta sección tiene miniaturas de videos de YouTube. Al hacer clic en la imagen, irás al video.",
-      "items": [
-        {
-          "title": "Veg Mixer",
-          "description": "Ensalada de tomate con vegetales frescos.",
-          "image": "https://via.placeholder.com/300x200.png?text=Veg+Mixer",
-          "link": "https://youtube.com/watch?v=abc123"
-        },
-        {
-          "title": "Macaroni",
-          "description": "Plato estilo Cheese Pizza.",
-          "image": "https://via.placeholder.com/300x200.png?text=Macaroni",
-          "link": "https://youtube.com/watch?v=def456"
-        },
-        {
-          "title": "Nelli",
-          "description": "Hamburguesa y papas fritas.",
-          "image": "https://via.placeholder.com/300x200.png?text=Nelli",
-          "link": "https://youtube.com/watch?v=ghi789"
-        },
-        {
-          "title": "Jalapeno Poppers",
-          "description": "Soja crujiente.",
-          "image": "https://via.placeholder.com/300x200.png?text=Jalapeno+Poppers",
-          "link": "https://youtube.com/watch?v=jkl012"
-        },
-        {
-          "title": "Cajun Chicken",
-          "description": "Pollo picante.",
-          "image": "https://via.placeholder.com/300x200.png?text=Cajun+Chicken",
-          "link": "https://youtube.com/watch?v=mno345"
-        },
-        {
-          "title": "Chilli Cake",
-          "description": "Un postre dulce y picante.",
-          "image": "https://via.placeholder.com/300x200.png?text=Chilli+Cake",
-          "link": "https://youtube.com/watch?v=pqr678"
-        }
-      ]
-    },
-    "pricing": {
-      "heading": "Planes Flexibles",
-      "subtitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      "plans": [
-        {
-          "title": "Personal",
-          "price": "$17.99",
-          "period": "mes",
-          "description": "Perfecto para blogs personales",
-          "features": ["30 Plantillas", "2 Landing Pages", "Soporte Básico"],
-          "button": "Comprar Ahora"
-        },
-        {
-          "title": "Negocios",
-          "price": "$37.99",
-          "period": "mes",
-          "description": "Ideal para sitios de producción",
-          "features": ["80 Landing Pages", "Funciones Avanzadas", "Asistencia Prioritaria"],
-          "button": "Comprar Ahora"
-        },
-        {
-          "title": "Empresarial",
-          "price": "$57.99",
-          "period": "mes",
-          "description": "Excelente para grandes empresas",
-          "features": ["100+ Landing Pages", "Herramientas Premium", "Soporte Dedicado"],
-          "button": "Comprar Ahora"
-        }
-      ]
-    },
-    "contactSection": {
-      "title": "Contáctanos",
-      "subtitle": "No dudes en ponerte en contacto con nosotros. ¡Nos encanta saber de ti!",
-      "placeholderName": "Tu Nombre Completo",
-      "placeholderEmail": "Tu Correo",
-      "placeholderSubject": "Asunto",
-      "placeholderMessage": "Tu mensaje aquí...",
-      "sendButton": "Enviar"
-    },
-    "footerSection": {
-      "links": {
-        "home": "Inicio",
-        "about": "Acerca",
-        "blog": "Blog",
-        "pricing": "Precios",
-        "contact": "Contacto"
+  "header": {
+    "about": "Acerca de",
+    "blog": "Blog",
+    "pricing": "Precios",
+    "contact": "Contacto",
+    "login": "Iniciar Sesión",
+    "signup": "Regístrate"
+  },
+  "hero": {
+    "title": "Plantillas React Modernas, Solo Para Ti.",
+    "subtitle": "Nuestras plantillas son fáciles de configurar, entender y personalizar. Componentes modulares con una variedad de páginas y elementos.",
+    "getStarted": "Comenzar",
+    "watchVideo": "Ver Video"
+  },
+  "trustedCustomers": "Nuestros Clientes Confiables",
+  "features": {
+    "heading": "Características Asombrosas",
+    "subtitle": "Descubre las principales características de nuestra plantilla.",
+    "items": [
+      { "title": "Seguro", "description": "Seguridad de primer nivel." },
+      { "title": "Rápido", "description": "Alto rendimiento." },
+      { "title": "Fácil", "description": "Interfaz intuitiva." },
+      { "title": "Personalizable", "description": "Totalmente adaptable." },
+      { "title": "Confiable", "description": "Resultados consistentes." },
+      { "title": "Soporte 24/7", "description": "Siempre disponibles." }
+    ]
+  },
+  "aboutSection": {
+    "trackRecord": "Nuestra Trayectoria",
+    "heading": "Lo hacemos desde 1999.",
+    "subtitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vitae urna eget nunc tincidunt aliquam.",
+    "stats": [
+      { "label": "Clientes", "value": "2828+" },
+      { "label": "Proyectos", "value": "3891+" },
+      { "label": "Premios", "value": "1000+" }
+    ]
+  },
+  "blogSection": {
+    "heading": "Videos",
+    "subtitle": "Mira nuestros videos de demostración.",
+    "items": [
+      {
+        "title": "Video 1",
+        "description": "Descripción del Video 1",
+        "link": "https://youtu.be/dQw4w9WgXcQ",
+        "image": ""
       },
-      "copyright": "© 2025 - Todos los derechos reservados."
+      {
+        "title": "Video 2",
+        "description": "Descripción del Video 2",
+        "link": "https://youtu.be/dQw4w9WgXcQ",
+        "image": ""
+      },
+      {
+        "title": "Video 3",
+        "description": "Descripción del Video 3",
+        "link": "https://youtu.be/dQw4w9WgXcQ",
+        "image": ""
+      }
+    ]
+  },
+  "reviewsSection": {
+    "heading": "Testimonios",
+    "subtitle": "¿Qué dicen nuestros clientes?",
+    "items": [
+      {
+        "name": "Charlotte Hale",
+        "review": "“Lorem ipsum dolor sit amet, consectetur adipiscing elit.”",
+        "image": "https://randomuser.me/api/portraits/women/44.jpg"
+      },
+      {
+        "name": "Adam Cuppy",
+        "review": "“Lorem ipsum dolor sit amet, consectetur adipiscing elit.”",
+        "image": "https://randomuser.me/api/portraits/men/33.jpg"
+      },
+      {
+        "name": "Steven Marchetti",
+        "review": "“Lorem ipsum dolor sit amet, consectetur adipiscing elit.”",
+        "image": "https://randomuser.me/api/portraits/men/66.jpg"
+      }
+    ]
+  },
+  "pricing": {
+    "heading": "Planes de Precios",
+    "subtitle": "Elige el plan que mejor se adapte a tu negocio.",
+    "plans": [
+      {
+        "title": "Personal",
+        "price": "$17.99",
+        "period": "mes",
+        "description": "Ideal para uso personal.",
+        "features": ["30 Plantillas", "2 Páginas de Aterrizaje", "Soporte Básico"],
+        "button": "Comprar Ahora"
+      },
+      {
+        "title": "Negocios",
+        "price": "$37.99",
+        "period": "mes",
+        "description": "Perfecto para pequeñas empresas.",
+        "features": ["80 Plantillas", "Funciones Avanzadas", "Soporte Prioritario"],
+        "button": "Comprar Ahora"
+      },
+      {
+        "title": "Empresarial",
+        "price": "$57.99",
+        "period": "mes",
+        "description": "Para grandes organizaciones.",
+        "features": ["100+ Plantillas", "Herramientas Premium", "Soporte Dedicado"],
+        "button": "Comprar Ahora"
+      }
+    ]
+  },
+  "faqSection": {
+    "heading": "Preguntas Frecuentes",
+    "subtitle": "Encuentra respuestas a las dudas más comunes.",
+    "items": [
+      {
+        "question": "¿Se proporciona el almuerzo de forma gratuita?",
+        "answer": "Sí, ofrecemos almuerzo gratuito para todos los participantes."
+      },
+      {
+        "question": "¿Tienen suites de 2 habitaciones?",
+        "answer": "Ofrecemos opciones de 1 o 2 habitaciones según disponibilidad."
+      },
+      {
+        "question": "¿El Wi-Fi está incluido en el precio?",
+        "answer": "Sí, el Wi-Fi está incluido sin costo adicional."
+      },
+      {
+        "question": "¿Dónde puedo obtener soporte?",
+        "answer": "Puedes contactarnos a través del formulario en la sección de Contacto o por correo electrónico."
+      }
+    ]
+  },
+  "downloadSection": {
+    "downloadText": "Download App",
+    "heading": "Download the App",
+    "subtitle": "Developers around the world are using Treact with satisfaction.",
+    "appStore": "App Store",
+    "googlePlay": "Google Play"
+  },
+  "contactSection": {
+    "title": "Contact Us",
+    "subtitle": "Feel free to reach out with your questions or suggestions.",
+    "placeholderName": "Your Full Name",
+    "placeholderEmail": "Your Email",
+    "placeholderSubject": "Subject",
+    "placeholderMessage": "Your Message...",
+    "sendButton": "Send"
+  },
+  "footerSection": {
+    "links": {
+      "home": "Home",
+      "about": "About",
+      "blog": "Blog",
+      "pricing": "Pricing",
+      "contact": "Contact"
     }
   }
-  
+}

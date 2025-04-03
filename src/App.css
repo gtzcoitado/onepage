@@ -1,3 +1,14 @@
+/* App.css */
+
+/* Paleta inspirada no template e na sua logo (tons de café e bege) */
+:root {
+  --primary-color: #6B4226; /* Marrom principal da sua marca */
+  --secondary-color: #4B2E22; /* Marrom escuro */
+  --text-color: #3c2f2f;
+  --light-bg: #f9f5f1;    /* Bege claro */
+  --white: #fff;
+}
+
 /* Reset básico */
 * {
   margin: 0;
@@ -7,45 +18,68 @@
 
 .App {
   font-family: sans-serif;
-  color: #333;
+  color: var(--text-color);
+  background-color: var(--white);
 }
 
-/* =========================
-   1) HEADER CUSTOM
-   ========================= */
-.header-custom {
+/* HEADER */
+.header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 1rem 2rem;
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-  position: sticky;
-  top: 0;
-  z-index: 999;
+  background-color: var(--white);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-.header-left .logo {
-  font-size: 1.5rem;
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.site-logo {
+  width: 80px;
+  height: auto;
+  object-fit: contain;
+}
+
+.logo-text {
   font-weight: bold;
-  color: #4a59e3;
+  font-size: 1.2rem;
+  color: var(--primary-color);
+}
+
+.header-nav button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font: inherit;     /* herda a fonte do elemento pai */
+  color: #333;       /* ou var(--text-color), dependendo do seu tema */
+  padding: 0.5rem 1rem;
+  transition: color 0.2s ease;
+}
+
+/* Efeito hover */
+.header-nav button:hover {
+  color: var(--primary-color); /* ou a cor que preferir */
 }
 
 .header-nav {
   display: flex;
   gap: 1rem;
+  margin-left: 2rem;
 }
 
 .header-nav a {
   text-decoration: none;
-  color: #333;
+  color: var(--text-color);
   font-weight: 500;
-  padding: 0.5rem;
   transition: color 0.2s ease;
 }
 
 .header-nav a:hover {
-  color: #4a59e3;
+  color: var(--primary-color);
 }
 
 .header-right {
@@ -56,56 +90,76 @@
 
 .login-btn {
   text-decoration: none;
-  color: #4a59e3;
+  color: var(--primary-color);
   font-weight: 500;
+  transition: color 0.2s;
+}
+
+.login-btn:hover {
+  color: var(--secondary-color);
 }
 
 .signup-btn {
   text-decoration: none;
-  color: #fff;
-  background-color: #4a59e3;
+  color: var(--white);
+  background-color: var(--primary-color);
   padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.signup-btn:hover {
+  background-color: var(--secondary-color);
+}
+
+/* Bandeiras */
+.language-switcher {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.flag-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.3rem;
   border-radius: 4px;
 }
 
-.language-switcher button {
-  border: 1px solid #ccc;
-  background: #fff;
-  cursor: pointer;
-  padding: 0.3rem 0.6rem;
-  font-size: 0.9rem;
+.flag-btn:hover {
+  background-color: #f0f0f0;
 }
 
-.language-switcher button:hover {
-  background: #f0f0f0;
+.flag-icon {
+  width: 24px;
+  height: 24px;
+  object-fit: cover;
 }
 
-/* =========================
-   2) HERO CUSTOM
-   ========================= */
-.hero-custom {
+/* HERO */
+.hero {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 3rem 2rem;
-  background-color: #fafafa;
+  background-color: var(--light-bg);
 }
 
-.hero-content {
+.hero-left {
   max-width: 50%;
 }
 
-.hero-content h1 {
+.hero-left h1 {
   font-size: 2.5rem;
   margin-bottom: 1rem;
-  color: #333;
+  color: var(--primary-color);
 }
 
-.hero-content p {
+.hero-left p {
   font-size: 1.1rem;
-  color: #555;
   margin-bottom: 1.5rem;
   line-height: 1.5;
+  color: #555;
 }
 
 .hero-buttons {
@@ -114,69 +168,75 @@
   margin-bottom: 2rem;
 }
 
-.primary-btn,
-.secondary-btn {
-  padding: 0.75rem 1.5rem;
-  font-size: 1rem;
-  border: none;
-  cursor: pointer;
-  border-radius: 4px;
-  transition: background-color 0.2s ease;
-}
-
 .primary-btn {
-  background-color: #4a59e3;
-  color: #fff;
+  background-color: var(--primary-color);
+  color: var(--white);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
 }
 
 .primary-btn:hover {
-  background-color: #3a49d3;
+  background-color: var(--secondary-color);
 }
 
 .secondary-btn {
-  background-color: #fff;
-  color: #4a59e3;
-  border: 1px solid #4a59e3;
+  background-color: var(--white);
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
 .secondary-btn:hover {
-  background-color: #4a59e3;
-  color: #fff;
+  background-color: var(--primary-color);
+  color: var(--white);
 }
 
-.trusted-logos {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.trusted-logos span {
-  font-weight: 500;
-  color: #444;
-}
-
-.trusted-logos img {
-  height: 30px;
+/* Trusted logos */
+.trusted-logo {
+  height: 50px;  /* ou 60px, ajuste como preferir */
+  width: auto;
+  margin-right: 2rem;
   object-fit: contain;
 }
 
-.hero-image img {
-  max-width: 100%;
-  height: auto;
+/* Título pequeno, todo em maiúsculas, cor mais clara */
+.trusted-title {
+  font-size: 0.85rem;    /* Letra pequena */
+  font-weight: 600;      /* Semibold */
+  color: #999;           /* Tom de cinza */
+  letter-spacing: 0.05rem; /* Espaçamento de letras */
+  text-transform: uppercase; /* Tudo em maiúsculas */
+  margin-bottom: 1rem;   /* Espaço abaixo do título */
 }
 
-/* =========================
-   3) FEATURES SECTION
-   ========================= */
+/* Hero imagem */
+.hero-right {
+  max-width: 50%;
+}
+
+.hero-image {
+  height: 500px;  /* ou 60px, ajuste como preferir */
+  width: auto;
+  margin-right: 1rem;
+  object-fit: contain;
+}
+
+/* FEATURES */
 .features-section {
   padding: 4rem 2rem;
   text-align: center;
-  background-color: #fff;
+  background-color: var(--white);
 }
 
 .features-title {
   font-size: 2rem;
   margin-bottom: 1rem;
+  color: var(--primary-color);
 }
 
 .features-subtitle {
@@ -196,7 +256,7 @@
 }
 
 .feature-item {
-  background-color: #fff;
+  background-color: var(--white);
   border-radius: 8px;
   padding: 2rem;
   box-shadow: 0 0 15px rgba(0,0,0,0.05);
@@ -210,7 +270,7 @@
 
 .feature-icon {
   margin-bottom: 1rem;
-  color: #4a59e3;
+  color: var(--primary-color);
 }
 
 .feature-item-title {
@@ -224,12 +284,10 @@
   line-height: 1.4;
 }
 
-/* =========================
-   4) ABOUT SECTION
-   ========================= */
+/* ABOUT */
 .about-section {
   padding: 4rem 2rem;
-  background-color: #fff;
+  background-color: #f9f9f9;
 }
 
 .about-content {
@@ -244,15 +302,12 @@
 .about-image img {
   max-width: 100%;
   height: auto;
-  border-radius: 8px;
-}
-
-.about-text {
-  flex: 1;
+  border-radius: 8px; /* se desejar bordas arredondadas */
+  object-fit: cover;
 }
 
 .about-text small {
-  color: #4a59e3;
+  color: var(--primary-color);
   text-transform: uppercase;
   font-weight: bold;
   display: block;
@@ -262,6 +317,7 @@
 .about-text h2 {
   font-size: 1.8rem;
   margin-bottom: 1rem;
+  color: var(--primary-color);
 }
 
 .about-text p {
@@ -277,28 +333,22 @@
 }
 
 .about-stat h3 {
-  font-size: 1.5rem;
-  color: #4a59e3;
+  font-size: 1.4rem;
+  color: var(--primary-color);
   margin-bottom: 0.3rem;
 }
 
-.about-stat p {
-  font-size: 0.9rem;
-  color: #666;
-}
-
-/* =========================
-   5) BLOG SECTION
-   ========================= */
+/* BLOG */
 .blog-section {
   padding: 4rem 2rem;
-  background-color: #f9f9f9;
+  background-color: var(--white);
   text-align: center;
 }
 
 .blog-title {
   font-size: 2rem;
   margin-bottom: 1rem;
+  color: var(--primary-color);
 }
 
 .blog-subtitle {
@@ -318,7 +368,7 @@
 }
 
 .blog-item {
-  background-color: #fff;
+  background-color: var(--white);
   border-radius: 8px;
   box-shadow: 0 0 15px rgba(0,0,0,0.05);
   overflow: hidden;
@@ -339,26 +389,157 @@
 .blog-item h3 {
   font-size: 1.2rem;
   margin: 0.8rem;
+  color: var(--primary-color);
 }
 
 .blog-item p {
   font-size: 0.95rem;
   color: #666;
   margin: 0 0.8rem 1rem;
+  line-height: 1.4;
 }
 
-/* =========================
-   6) PRICING SECTION
-   ========================= */
+/* REVIEWS */
+.reviews-section {
+  padding: 4rem 2rem;
+  background-color: #f9f9f9; /* Ajuste se quiser outra cor */
+  text-align: center;
+}
+
+.reviews-title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #6B4226; /* Exemplo de cor marrom, se quiser */
+}
+
+.reviews-subtitle {
+  font-size: 1rem;
+  color: #666;
+  max-width: 700px;
+  margin: 0 auto 3rem;
+  line-height: 1.5;
+}
+
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 colunas */
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.review-item {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 0 15px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.review-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+.review-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+}
+
+.review-text {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 1rem;
+  text-align: center;
+  font-style: italic;
+  line-height: 1.4;
+}
+
+.review-name {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #6B4226; /* marrom, se quiser */
+}
+
+
+.reviews-title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+}
+
+.reviews-subtitle {
+  font-size: 1rem;
+  color: #666;
+  max-width: 700px;
+  margin: 0 auto 3rem;
+  line-height: 1.5;
+}
+
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.review-item {
+  background-color: var(--white);
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 0 15px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.review-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+.review-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  object-fit: cover;
+}
+
+.review-text {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 1rem;
+  text-align: center;
+  font-style: italic;
+  line-height: 1.4;
+}
+
+.review-name {
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+/* PRICING */
 .pricing-section {
   padding: 4rem 2rem;
+  background-color: var(--white);
   text-align: center;
-  background-color: #fff;
 }
 
 .pricing-title {
   font-size: 2rem;
   margin-bottom: 1rem;
+  color: var(--primary-color);
 }
 
 .pricing-subtitle {
@@ -378,7 +559,7 @@
 }
 
 .pricing-card {
-  background-color: #fff;
+  background-color: var(--white);
   border-radius: 8px;
   padding: 2rem;
   box-shadow: 0 0 15px rgba(0,0,0,0.05);
@@ -396,12 +577,13 @@
 .pricing-card h3 {
   font-size: 1.5rem;
   margin-bottom: 0.5rem;
+  color: var(--primary-color);
 }
 
 .pricing-card h4 {
   font-size: 1.3rem;
   margin-bottom: 1rem;
-  color: #4a59e3;
+  color: var(--primary-color);
 }
 
 .pricing-card h4 span {
@@ -427,8 +609,8 @@
 }
 
 .pricing-card button {
-  background-color: #4a59e3;
-  color: #fff;
+  background-color: var(--primary-color);
+  color: var(--white);
   border: none;
   padding: 0.8rem 1.5rem;
   border-radius: 4px;
@@ -436,14 +618,136 @@
   font-size: 1rem;
 }
 
-/* Destaque no plano do meio */
-.pricing-card.highlight {
-  background-color: #e6ecff; /* leve azul para destacar */
+.pricing-card button:hover {
+  background-color: var(--secondary-color);
 }
 
-/* =========================
-   7) CONTACT SECTION
-   ========================= */
+.pricing-card.highlight {
+  background-color: #f0f0ff;
+}
+
+/* FAQ */
+.faq-section {
+  padding: 4rem 2rem;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+.faq-title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+}
+
+.faq-subtitle {
+  font-size: 1rem;
+  color: #666;
+  max-width: 700px;
+  margin: 0 auto 3rem;
+  line-height: 1.5;
+}
+
+.faq-items {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.faq-item {
+  border-bottom: 1px solid #ddd;
+  padding: 1rem 0;
+}
+
+.faq-question {
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
+  font-size: 1rem;
+  font-weight: 500;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  padding: 0;
+  color: var(--primary-color);
+}
+
+.faq-question span {
+  font-weight: bold;
+  margin-left: 1rem;
+}
+
+.faq-answer {
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.4;
+}
+
+/* DOWNLOAD */
+.download-section {
+  background-color: var(--primary-color);
+  color: var(--white);
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.download-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 2rem;
+}
+
+.download-text {
+  flex: 1;
+}
+
+.download-text h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.download-text p {
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  line-height: 1.5;
+}
+
+.download-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.store-btn {
+  background-color: var(--white);
+  color: var(--primary-color);
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.2s;
+}
+
+.store-btn:hover {
+  background-color: var(--secondary-color);
+  color: var(--white);
+}
+
+.smartphone-image {
+  width: 320px;      /* Tamanho desejado */
+  height: auto;
+  object-fit: cover; /* Evita distorção */
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* CONTACT */
 .contact-section {
   padding: 4rem 2rem;
   background-color: #f9f9f9;
@@ -464,6 +768,7 @@
 .contact-form h2 {
   font-size: 1.8rem;
   margin-bottom: 0.5rem;
+  color: var(--primary-color);
 }
 
 .contact-form p {
@@ -487,17 +792,18 @@
 }
 
 .contact-form button {
-  background-color: #4a59e3;
-  color: #fff;
+  background-color: var(--primary-color);
+  color: var(--white);
   border: none;
   padding: 0.8rem 1.5rem;
   border-radius: 4px;
   cursor: pointer;
   font-size: 1rem;
+  transition: background-color 0.2s;
 }
 
-.contact-illustration {
-  flex: 1;
+.contact-form button:hover {
+  background-color: var(--secondary-color);
 }
 
 .contact-illustration img {
@@ -506,28 +812,39 @@
   border-radius: 8px;
 }
 
-/* =========================
-   8) FOOTER ESCURO
-   ========================= */
-.dark-footer {
-  background-color: #1c1c1c;
-  color: #fff;
-  padding: 2rem 1rem;
+/* FOOTER */
+.footer {
+  background-color: #f0f0f0;
+  color: #333;
   text-align: center;
+  padding: 2rem;
 }
 
-.dark-footer .footer-links {
-  margin-bottom: 1rem;
+.footer-links button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font: inherit;
+  color: #333; /* Ajuste conforme sua paleta */
+  padding: 0.5rem 1rem;
+  transition: color 0.2s ease;
 }
 
-.dark-footer .footer-links a {
+/* Hover */
+.footer-links button:hover {
+  color: var(--primary-color); /* Ajuste conforme sua cor principal */
+}
+
+.footer-links a {
   margin: 0 0.5rem;
   text-decoration: none;
-  color: #ccc;
+  color: var(--primary-color);
+  font-weight: 500;
+  transition: color 0.2s;
 }
 
-.dark-footer .footer-links a:hover {
-  color: #fff;
+.footer-links a:hover {
+  color: var(--secondary-color);
 }
 
 .footer-social {
@@ -536,53 +853,51 @@
 
 .footer-social a {
   margin: 0 0.5rem;
-  color: #ccc;
+  color: #666;
   font-size: 1.2rem;
+  transition: color 0.2s;
 }
 
 .footer-social a:hover {
-  color: #fff;
+  color: var(--primary-color);
 }
 
-.footer-copyright {
-  color: #999;
-  margin-bottom: 0.5rem;
+.footer p {
+  font-size: 0.9rem;
+  color: #666;
 }
 
-/* =========================
-   9) RESPONSIVIDADE BÁSICA
-   ========================= */
+/* RESPONSIVO */
 @media (max-width: 768px) {
-  /* Hero */
-  .hero-custom {
+  .hero {
     flex-direction: column;
   }
-  .hero-content {
+  .hero-left {
     max-width: 100%;
     margin-bottom: 2rem;
   }
-
-  /* Header nav reorganizado (se quiser) */
-  /* .header-nav {
-    display: none;
-  } */
-
-  /* Features, Blog, Pricing: 1 coluna em telas menores */
+  .hero-right img {
+    max-width: 100%;
+  }
   .features-grid,
   .blog-grid,
+  .reviews-grid,
   .pricing-cards {
     grid-template-columns: 1fr;
   }
-
-  /* About content em coluna */
   .about-content {
     flex-direction: column;
   }
   .about-stats {
     flex-direction: column;
   }
-
-  /* Contact container em coluna */
+  .download-container {
+    flex-direction: column;
+    text-align: center;
+  }
+  .download-image img {
+    margin-top: 2rem;
+  }
   .contact-container {
     flex-direction: column;
   }

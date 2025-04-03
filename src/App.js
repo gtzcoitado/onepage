@@ -1,8 +1,25 @@
-import React from 'react';
+// App.js
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import './App.css';
 
-// Ícones do react-icons (Feather Icons) para a seção de Features
+// Imagens e ícones
+import logo from './assets/logo.png';
+import heroImage from './assets/images/hero-illustration.png';
+import statsImage from './assets/stats.png';
+import smartphoneImg from './assets/images/smartphone.png';
+import contactIllustration from './assets/images/contact-illustration.png';
+
+import fortuneLogo from './assets/trusted/fortune.png';
+import fastCompanyLogo from './assets/trusted/fastcompany.png';
+import natGeoLogo from './assets/trusted/nationalgeo.png';
+import forbesLogo from './assets/trusted/forbes.png';
+
+import ptFlag from './assets/flags/pt.png';
+import enFlag from './assets/flags/en.png';
+import esFlag from './assets/flags/es.png';
+
+// Ícones para a seção de Features
 import {
   FiShield,
   FiClock,
@@ -13,17 +30,10 @@ import {
 } from 'react-icons/fi';
 
 // Ícones de redes sociais para o Footer
-import {
-  FaFacebookF,
-  FaTwitter,
-  FaYoutube
-} from 'react-icons/fa';
+import { FaFacebookF, FaTwitter, FaYoutube } from 'react-icons/fa';
 
 /**
  * Função para extrair o ID do vídeo do YouTube a partir de uma URL.
- * Exemplos: 
- *   "https://youtu.be/dQw4w9WgXcQ" ou "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
- * Retorna "dQw4w9WgXcQ".
  */
 function getYouTubeId(url) {
   const regExp = /^.*(?:youtu\.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
@@ -33,13 +43,26 @@ function getYouTubeId(url) {
 
 function App() {
   const { t, i18n } = useTranslation();
+  const [openIndex, setOpenIndex] = useState(null);
 
   // Função para trocar o idioma
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
   };
 
-  // Array de ícones para a seção de Features (ordem conforme JSON)
+  // Função para scroll suave; se for 'hero' (ou 'home'), rola até o topo.
+  const scrollToSection = (sectionId) => {
+    if (sectionId === 'hero') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
+
+  // Ícones para a seção de Features
   const featureIcons = [
     <FiShield size={40} />,
     <FiClock size={40} />,
@@ -52,56 +75,86 @@ function App() {
   return (
     <div className="App">
       {/* HEADER */}
-      <header className="header-custom">
+      <header className="header">
         <div className="header-left">
-          <div className="logo">{t('header.logo')}</div>
+          <img src={logo} alt="Logo" className="site-logo" />
+          <div className="logo-text">Treact</div>
         </div>
         <nav className="header-nav">
-          <a href="#about">{t('header.about')}</a>
-          <a href="#blog">{t('header.blog')}</a>
-          <a href="#pricing">{t('header.pricing')}</a>
-          <a href="#contact">{t('header.contact')}</a>
+          <button onClick={() => scrollToSection('about')}>
+            {t('header.about')}
+          </button>
+          <button onClick={() => scrollToSection('blog')}>
+            {t('header.blog')}
+          </button>
+          <button onClick={() => scrollToSection('reviews')}>
+            Reviews
+          </button>
+          <button onClick={() => scrollToSection('pricing')}>
+            {t('header.pricing')}
+          </button>
+          <button onClick={() => scrollToSection('faq')}>
+            FAQ
+          </button>
+          <button onClick={() => scrollToSection('download')}>
+            {t('downloadSection.downloadText')}
+          </button>
+          <button onClick={() => scrollToSection('contact')}>
+            {t('header.contact')}
+          </button>
         </nav>
         <div className="header-right">
           <a
             href="https://app.cafecomfinancasoficial.com/auth/sign-in"
             className="login-btn"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             {t('header.login')}
           </a>
           <a
             href="https://app.cafecomfinancasoficial.com/auth/sign-in"
             className="signup-btn"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             {t('header.signup')}
           </a>
           <div className="language-switcher">
-            <button onClick={() => changeLanguage('pt')}>PT</button>
-            <button onClick={() => changeLanguage('en')}>EN</button>
-            <button onClick={() => changeLanguage('es')}>ES</button>
+            <button onClick={() => changeLanguage('pt')} className="flag-btn">
+              <img src={ptFlag} alt="PT" className="flag-icon" />
+            </button>
+            <button onClick={() => changeLanguage('en')} className="flag-btn">
+              <img src={enFlag} alt="EN" className="flag-icon" />
+            </button>
+            <button onClick={() => changeLanguage('es')} className="flag-btn">
+              <img src={esFlag} alt="ES" className="flag-icon" />
+            </button>
           </div>
         </div>
       </header>
 
-      {/* HERO */}
-      <section id="hero" className="hero-custom">
-        <div className="hero-content">
+      {/* HERO SECTION */}
+      <section id="hero" className="hero">
+        <div className="hero-left">
           <h1>{t('hero.title')}</h1>
           <p>{t('hero.subtitle')}</p>
           <div className="hero-buttons">
             <button className="primary-btn">{t('hero.getStarted')}</button>
             <button className="secondary-btn">{t('hero.watchVideo')}</button>
           </div>
-          <div className="trusted-logos">
-            <span>{t('trustedCustomers')}:</span>
-            <img src="https://via.placeholder.com/80x40.png?text=Fortune" alt="Fortune" />
-            <img src="https://via.placeholder.com/80x40.png?text=FastCompany" alt="Fast Company" />
-            <img src="https://via.placeholder.com/80x40.png?text=NationalGeographic" alt="National Geographic" />
-            <img src="https://via.placeholder.com/80x40.png?text=Forbes" alt="Forbes" />
+          <div className="trusted-customers">
+            <p className="trusted-title">{t('trustedCustomers')}:</p>
+            <div className="trusted-logos">
+              <img src={fortuneLogo} alt="Fortune" className="trusted-logo" />
+              <img src={fastCompanyLogo} alt="Fast Company" className="trusted-logo" />
+              <img src={forbesLogo} alt="Forbes" className="trusted-logo" />
+              <img src={natGeoLogo} alt="National Geographic" className="trusted-logo" />
+            </div>
           </div>
         </div>
-        <div className="hero-image">
-          <img src="https://via.placeholder.com/500x400.png?text=Hero+Illustration" alt="Hero Illustration" />
+        <div className="hero-right">
+          <img src={heroImage} alt="Hero" className="hero-image" />
         </div>
       </section>
 
@@ -124,7 +177,7 @@ function App() {
       <section id="about" className="about-section">
         <div className="about-content">
           <div className="about-image">
-            <img src="https://via.placeholder.com/400x300.png?text=Stats+Image" alt="Stats Illustration" />
+            <img src={statsImage} alt="Stats Illustration" />
           </div>
           <div className="about-text">
             <small>{t('aboutSection.trackRecord')}</small>
@@ -148,9 +201,7 @@ function App() {
         <p className="blog-subtitle">{t('blogSection.subtitle')}</p>
         <div className="blog-grid">
           {t('blogSection.items', { returnObjects: true }).map((item, index) => {
-            // Extrai o ID do vídeo do YouTube
             const videoId = getYouTubeId(item.link);
-            // Se o ID for válido, monta a URL da thumbnail; senão, usa item.image (fallback)
             const youtubeThumbnail = videoId
               ? `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`
               : item.image;
@@ -164,6 +215,21 @@ function App() {
               </div>
             );
           })}
+        </div>
+      </section>
+
+      {/* REVIEWS SECTION */}
+      <section id="reviews" className="reviews-section">
+        <h2 className="reviews-title">{t('reviewsSection.heading')}</h2>
+        <p className="reviews-subtitle">{t('reviewsSection.subtitle')}</p>
+        <div className="reviews-grid">
+          {t('reviewsSection.items', { returnObjects: true }).map((item, index) => (
+            <div className="review-item" key={index}>
+              <img src={item.image} alt={item.name} className="review-image" />
+              <p className="review-text">{item.review}</p>
+              <h4 className="review-name">{item.name}</h4>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -190,6 +256,54 @@ function App() {
         </div>
       </section>
 
+      {/* FAQ SECTION */}
+      <section id="faq" className="faq-section">
+        <h2 className="faq-title">{t('faqSection.heading')}</h2>
+        <p className="faq-subtitle">{t('faqSection.subtitle')}</p>
+        <div className="faq-items">
+          {[...t('faqSection.items', { returnObjects: true })].map((faq, idx) => {
+            const isOpen = openIndex === idx;
+            return (
+              <div className="faq-item" key={idx}>
+                <button
+                  className="faq-question"
+                  onClick={() => setOpenIndex(isOpen ? null : idx)}
+                >
+                  {faq.question}
+                  <span>{isOpen ? '-' : '+'}</span>
+                </button>
+                {isOpen && (
+                  <div className="faq-answer">
+                    <p>{faq.answer}</p>
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </div>
+      </section>
+
+      {/* DOWNLOAD APP SECTION */}
+      <section id="download" className="download-section">
+        <div className="download-container">
+          <div className="download-text">
+            <h2>{t('downloadSection.heading')}</h2>
+            <p>{t('downloadSection.subtitle')}</p>
+            <div className="download-buttons">
+              <button className="store-btn appstore-btn">
+                {t('downloadSection.appStore')}
+              </button>
+              <button className="store-btn googleplay-btn">
+                {t('downloadSection.googlePlay')}
+              </button>
+            </div>
+          </div>
+          <div className="download-image">
+            <img src={smartphoneImg} alt="Smartphone" className="smartphone-image" />
+          </div>
+        </div>
+      </section>
+
       {/* CONTACT SECTION */}
       <section id="contact" className="contact-section">
         <div className="contact-container">
@@ -205,19 +319,29 @@ function App() {
             </form>
           </div>
           <div className="contact-illustration">
-            <img src="https://via.placeholder.com/400x300.png?text=Contact+Illustration" alt="Contact Illustration" />
+            <img src={contactIllustration} alt="Contact Illustration" className="contact-image" />
           </div>
         </div>
       </section>
 
-      {/* FOOTER ESCURO */}
-      <footer className="dark-footer">
+      {/* FOOTER */}
+      <footer className="footer">
         <div className="footer-links">
-          <a href="#hero">{t('footerSection.links.home')}</a>
-          <a href="#about">{t('footerSection.links.about')}</a>
-          <a href="#blog">{t('footerSection.links.blog')}</a>
-          <a href="#pricing">{t('footerSection.links.pricing')}</a>
-          <a href="#contact">{t('footerSection.links.contact')}</a>
+          <button onClick={() => scrollToSection('hero')}>
+            {t('footerSection.links.home')}
+          </button>
+          <button onClick={() => scrollToSection('about')}>
+            {t('footerSection.links.about')}
+          </button>
+          <button onClick={() => scrollToSection('blog')}>
+            {t('footerSection.links.blog')}
+          </button>
+          <button onClick={() => scrollToSection('pricing')}>
+            {t('footerSection.links.pricing')}
+          </button>
+          <button onClick={() => scrollToSection('contact')}>
+            {t('footerSection.links.contact')}
+          </button>
         </div>
         <div className="footer-social">
           <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
@@ -230,17 +354,7 @@ function App() {
             <FaYoutube />
           </a>
         </div>
-        <p className="footer-copyright">
-          {t('footerSection.links.home')} Treact. {t('footerSection.links.about')}
-          <br />
-          {t('footerSection.links.contact')} | {t('footerSection.links.blog')} | {t('footerSection.links.pricing')}
-          <br />
-          {t('footerSection.links.contact')}
-        </p>
-        <p>
-          {t('footerSection.links.home')} Treact. {t('footerSection.links.about')}
-        </p>
-        <p>{t('footerSection.copyright')}</p>
+        <p>© 2025 - {t('footerSection.links.home')} Treact.</p>
       </footer>
     </div>
   );
