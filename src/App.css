@@ -54,15 +54,15 @@
   background: none;
   border: none;
   cursor: pointer;
-  font: inherit;     /* herda a fonte do elemento pai */
-  color: #333;       /* ou var(--text-color), dependendo do seu tema */
+  font: inherit;
+  color: #333;
   padding: 0.5rem 1rem;
   transition: color 0.2s ease;
 }
 
 /* Efeito hover */
 .header-nav button:hover {
-  color: var(--primary-color); /* ou a cor que preferir */
+  color: var(--primary-color);
 }
 
 .header-nav {
@@ -131,10 +131,12 @@
 }
 
 .flag-icon {
-  width: 24px;
-  height: 24px;
-  object-fit: cover;
+  width: 34px;         /* Largura fixa */
+  height: auto;        /* Ajuste automático de altura */
+  object-fit: contain; /* Evita distorcer a imagem */
+  margin: 0;           /* Se quiser remover espaçamento extra */
 }
+
 
 /* HERO */
 .hero {
@@ -198,35 +200,33 @@
 
 /* Trusted logos */
 .trusted-logo {
-  height: 50px;  /* ou 60px, ajuste como preferir */
+  height: 50px;
   width: auto;
   margin-right: 2rem;
   object-fit: contain;
 }
 
-/* Título pequeno, todo em maiúsculas, cor mais clara */
 .trusted-title {
-  font-size: 0.85rem;    /* Letra pequena */
-  font-weight: 600;      /* Semibold */
-  color: #999;           /* Tom de cinza */
-  letter-spacing: 0.05rem; /* Espaçamento de letras */
-  text-transform: uppercase; /* Tudo em maiúsculas */
-  margin-bottom: 1rem;   /* Espaço abaixo do título */
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #999;
+  letter-spacing: 0.05rem;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
 }
 
-/* Hero imagem */
 .hero-right {
   max-width: 50%;
 }
 
 .hero-image {
-  height: 500px;  /* ou 60px, ajuste como preferir */
+  height: 500px;
   width: auto;
   margin-right: 1rem;
   object-fit: contain;
 }
 
-/* FEATURES */
+/* FEATURES SECTION */
 .features-section {
   padding: 4rem 2rem;
   text-align: center;
@@ -284,7 +284,7 @@
   line-height: 1.4;
 }
 
-/* ABOUT */
+/* ABOUT SECTION */
 .about-section {
   padding: 4rem 2rem;
   background-color: #f9f9f9;
@@ -302,7 +302,7 @@
 .about-image img {
   max-width: 100%;
   height: auto;
-  border-radius: 8px; /* se desejar bordas arredondadas */
+  border-radius: 8px;
   object-fit: cover;
 }
 
@@ -338,7 +338,7 @@
   margin-bottom: 0.3rem;
 }
 
-/* BLOG */
+/* BLOG SECTION */
 .blog-section {
   padding: 4rem 2rem;
   background-color: var(--white);
@@ -359,6 +359,8 @@
   line-height: 1.5;
 }
 
+/* Grid principal para blog, se usasse em outro local.
+   No carrossel, ignoramos. */
 .blog-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -367,106 +369,12 @@
   margin: 0 auto;
 }
 
-.blog-item {
-  background-color: var(--white);
-  border-radius: 8px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.05);
-  overflow: hidden;
-  transition: all 0.3s ease;
-  text-align: left;
-}
-
-.blog-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 0 20px rgba(0,0,0,0.1);
-}
-
-.blog-item img {
-  width: 100%;
-  display: block;
-}
-
-.blog-item h3 {
-  font-size: 1.2rem;
-  margin: 0.8rem;
-  color: var(--primary-color);
-}
-
-.blog-item p {
-  font-size: 0.95rem;
-  color: #666;
-  margin: 0 0.8rem 1rem;
-  line-height: 1.4;
-}
-
-/* REVIEWS */
+/* REVIEWS SECTION */
 .reviews-section {
   padding: 4rem 2rem;
-  background-color: #f9f9f9; /* Ajuste se quiser outra cor */
+  background-color: #f9f9f9;
   text-align: center;
 }
-
-.reviews-title {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  color: #6B4226; /* Exemplo de cor marrom, se quiser */
-}
-
-.reviews-subtitle {
-  font-size: 1rem;
-  color: #666;
-  max-width: 700px;
-  margin: 0 auto 3rem;
-  line-height: 1.5;
-}
-
-.reviews-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 colunas */
-  gap: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.review-item {
-  background-color: #fff;
-  border-radius: 8px;
-  padding: 2rem;
-  box-shadow: 0 0 15px rgba(0,0,0,0.05);
-  transition: all 0.3s ease;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.review-item:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 0 20px rgba(0,0,0,0.1);
-}
-
-.review-image {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 1rem;
-}
-
-.review-text {
-  font-size: 0.95rem;
-  color: #555;
-  margin-bottom: 1rem;
-  text-align: center;
-  font-style: italic;
-  line-height: 1.4;
-}
-
-.review-name {
-  font-size: 1rem;
-  font-weight: bold;
-  color: #6B4226; /* marrom, se quiser */
-}
-
 
 .reviews-title {
   font-size: 2rem;
@@ -529,7 +437,7 @@
   color: var(--primary-color);
 }
 
-/* PRICING */
+/* PRICING SECTION */
 .pricing-section {
   padding: 4rem 2rem;
   background-color: var(--white);
@@ -626,7 +534,7 @@
   background-color: #f0f0ff;
 }
 
-/* FAQ */
+/* FAQ SECTION */
 .faq-section {
   padding: 4rem 2rem;
   background-color: #f9f9f9;
@@ -685,7 +593,7 @@
   line-height: 1.4;
 }
 
-/* DOWNLOAD */
+/* DOWNLOAD SECTION */
 .download-section {
   background-color: var(--primary-color);
   color: var(--white);
@@ -740,14 +648,14 @@
 }
 
 .smartphone-image {
-  width: 320px;      /* Tamanho desejado */
+  width: 320px;     
   height: auto;
-  object-fit: cover; /* Evita distorção */
+  object-fit: cover; 
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
-/* CONTACT */
+/* CONTACT SECTION */
 .contact-section {
   padding: 4rem 2rem;
   background-color: #f9f9f9;
@@ -825,14 +733,13 @@
   border: none;
   cursor: pointer;
   font: inherit;
-  color: #333; /* Ajuste conforme sua paleta */
+  color: #333;
   padding: 0.5rem 1rem;
   transition: color 0.2s ease;
 }
 
-/* Hover */
 .footer-links button:hover {
-  color: var(--primary-color); /* Ajuste conforme sua cor principal */
+  color: var(--primary-color);
 }
 
 .footer-links a {
@@ -867,7 +774,7 @@
   color: #666;
 }
 
-/* RESPONSIVO */
+/* RESPONSIVO - substitui colunas por 1 coluna quando <= 768px */
 @media (max-width: 768px) {
   .hero {
     flex-direction: column;
@@ -879,18 +786,21 @@
   .hero-right img {
     max-width: 100%;
   }
+
   .features-grid,
   .blog-grid,
   .reviews-grid,
   .pricing-cards {
     grid-template-columns: 1fr;
   }
+
   .about-content {
     flex-direction: column;
   }
   .about-stats {
     flex-direction: column;
   }
+
   .download-container {
     flex-direction: column;
     text-align: center;
@@ -901,78 +811,38 @@
   .contact-container {
     flex-direction: column;
   }
+
+  /* Carrossel - recoloca setas pra dentro */
+  .carousel-arrow.left {
+    left: 0.5rem;
+  }
+  .carousel-arrow.right {
+    right: 0.5rem;
+  }
 }
 
-/* BLOG – Carrossel com 2 vídeos por coluna e 3 colunas visíveis */
-.blog-section {
-  padding: 4rem 2rem;
-  background-color: var(--white);
-  text-align: center;
-}
-
-.blog-title {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  color: var(--primary-color);
-}
-
-.blog-subtitle {
-  font-size: 1rem;
-  color: #666;
-  max-width: 700px;
-  margin: 0 auto 3rem;
-  line-height: 1.5;
-}
-
-/* ====== WRAPPER ====== */
+/* Carrossel */
 .carousel-wrapper {
   position: relative;
-  max-width: 1200px; /* Ajuste se quiser */
+  max-width: 1200px; 
   margin: 0 auto;
-  overflow: visible; /* Importante: para as setas “saírem” */
+  overflow: visible;
 }
 
-/* Container que efetivamente “corta” o carrossel */
 .carousel-container {
   position: relative;
   width: 100%;
-  overflow: hidden; /* rolagem horizontal oculta */
+  overflow: hidden; 
 }
 
-/* Carrossel em si */
 .carousel {
   display: flex;
   gap: 2rem;
   scroll-behavior: smooth;
-  /* Se quiser padding aqui também, tudo bem */
   padding-bottom: 1rem;
   overflow-x: auto;
 }
 
-.video-column {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  min-width: 250px; 
-  flex-shrink: 0;
-}
-
-/* Cada card de vídeo */
-.blog-item {
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.05);
-  transition: all 0.3s ease;
-  text-align: left;
-  overflow: hidden;
-}
-
-.blog-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 0 20px rgba(0,0,0,0.1);
-}
-
-/* SETAS fora do container */
 .carousel-arrow {
   position: absolute;
   top: 50%;
@@ -992,32 +862,78 @@
   transition: background-color 0.2s ease;
 }
 
-/* Ajuste para sumir a rolagem do Chrome */
 .carousel::-webkit-scrollbar {
   display: none;
 }
 
-/* Hover nas setas */
 .carousel-arrow:hover {
   opacity: 1;
   background-color: #333;
   color: #fff;
 }
 
-/* Posição das setas em telas grandes */
 .carousel-arrow.left {
-  left: -3rem; /* fora do container */
+  left: -3rem;
 }
 .carousel-arrow.right {
   right: -3rem;
 }
 
-/* Em telas menores que 768px: traz as setas para dentro */
-@media (max-width: 768px) {
-  .carousel-arrow.left {
-    left: 0.5rem; /* ou 1rem */
-  }
-  .carousel-arrow.right {
-    right: 0.5rem;
-  }
+/* A coluna que contém cada par de vídeos */
+.video-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  min-width: 250px; 
+  flex-shrink: 0;
+  align-items: flex-start !important; /* crucial p/ não esticar */
+}
+
+/* Card sem altura fixa, mas a seguir definimos algo se quiser. */
+.blog-item {
+  width: 260px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.05);
+  overflow: hidden;
+  text-align: left;
+  background-color: #fff;
+  transition: all 0.3s ease;
+}
+
+/* Imagem */
+.blog-item img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+/* Título: 1 linha, ellipsis */
+.blog-item h3 {
+  margin: 0.5rem 0.8rem 0;
+  color: #6B4226;
+  font-size: 1rem;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Descrição: 3 linhas (ex: line-height=1.3 => 3.9em) */
+.blog-item p {
+  margin: 0 0.8rem 1rem;
+  color: #666;
+  font-size: 0.9rem;
+  line-height: 1.3;
+  max-height: 3.9em;   /* 3 linhas */
+  overflow: hidden;
+  white-space: normal;
+}
+
+/* Hover no card */
+.blog-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
 }

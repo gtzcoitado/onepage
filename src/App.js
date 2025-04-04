@@ -32,7 +32,7 @@ import {
 import { FaFacebookF, FaTwitter, FaYoutube } from 'react-icons/fa';
 
 /**
- * Função para extrair o ID do vídeo do YouTube a partir de uma URL.
+ * Extrai o ID do vídeo do YouTube da URL.
  */
 function getYouTubeId(url) {
   const regExp = /^.*(?:youtu\.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
@@ -41,7 +41,7 @@ function getYouTubeId(url) {
 }
 
 /**
- * Função para calcular o token conforme a regra definida na sua API (script do Postman).
+ * Gera o token conforme a regra (script do Postman).
  */
 function computeToken() {
   const dataAtual = new Date();
@@ -59,18 +59,21 @@ function App() {
   // Ref para o carrossel
   const carouselRef = useRef(null);
 
-  // Busca os vídeos da API usando um IDUsuario fixo (-1) e um token calculado
+  // Carrega vídeos da API usando IDUsuario=-1 e token
   useEffect(() => {
     const fetchVideos = async () => {
       try {
         const tokenString = computeToken();
-        const response = await fetch("https://cafecomfinancasoficial.com/FinancasAPI/API/VideosYoutube/ListarTodos", {
-          method: 'GET',
-          headers: {
-            'IDUsuario': '-1',
-            'Token': tokenString
+        const response = await fetch(
+          "https://cafecomfinancasoficial.com/FinancasAPI/API/VideosYoutube/ListarTodos",
+          {
+            method: 'GET',
+            headers: {
+              'IDUsuario': '-1',
+              'Token': tokenString
+            }
           }
-        });
+        );
         const data = await response.json();
         setVideos(data);
       } catch (error) {
@@ -81,10 +84,12 @@ function App() {
     fetchVideos();
   }, []);
 
+  // Troca de idioma
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
   };
 
+  // Scroll suave
   const scrollToSection = (sectionId) => {
     if (sectionId === 'hero') {
       window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -106,7 +111,7 @@ function App() {
     <FiThumbsUp size={40} />
   ];
 
-  // Funções para rolar o carrossel horizontalmente
+  // Carrossel: rolagem horizontal
   const scrollLeft = () => {
     if (carouselRef.current) {
       carouselRef.current.scrollLeft -= 350;
@@ -151,21 +156,22 @@ function App() {
           </button>
         </nav>
         <div className="header-right">
+          {/* Login abre /admin em nova aba */}
           <a
-            href="https://app.cafecomfinancasoficial.com/auth/sign-in"
+            href="/admin"
             className="login-btn"
-            target="_blank"
             rel="noopener noreferrer"
           >
-            {t('header.login')}
+            Login
           </a>
+          {/* Botão renomeado para “Acesse o App” */}
           <a
             href="https://app.cafecomfinancasoficial.com/auth/sign-in"
             className="signup-btn"
             target="_blank"
             rel="noopener noreferrer"
           >
-            {t('header.signup')}
+            Acesse o App
           </a>
           <div className="language-switcher">
             <button onClick={() => changeLanguage('pt')} className="flag-btn">
@@ -186,10 +192,14 @@ function App() {
         <div className="hero-left">
           <h1>{t('hero.title')}</h1>
           <p>{t('hero.subtitle')}</p>
+
+          {/* Comentados (removidos) a pedido do cliente
           <div className="hero-buttons">
             <button className="primary-btn">{t('hero.getStarted')}</button>
             <button className="secondary-btn">{t('hero.watchVideo')}</button>
           </div>
+          */}
+
           <div className="trusted-customers">
             <p className="trusted-title">{t('trustedCustomers')}:</p>
             <div className="trusted-logos">
@@ -247,30 +257,24 @@ function App() {
         <h2 className="blog-title">Vídeos</h2>
         <p className="blog-subtitle">Confira nossos vídeos de demonstração.</p>
 
-        {/* Wrapper que permite setas fora do container sem cortar */}
         <div className="carousel-wrapper">
           <button className="carousel-arrow left" onClick={scrollLeft}>
             &lt;
           </button>
 
-          {/* Container que controla o overflow horizontal */}
           <div className="carousel-container">
             <div className="carousel" ref={carouselRef}>
               {(() => {
-                // Vamos criar colunas, cada uma com 2 vídeos
+                // 3 vídeos por coluna
                 const columns = [];
-                for (let i = 0; i < videos.length; i += 2) {
+                for (let i = 0; i < videos.length; i += 3) {
                   columns.push(
                     <div className="video-column" key={`col-${i}`}>
-                      {[videos[i], videos[i + 1]]
+                      {[videos[i], videos[i + 1], videos[i + 2]]
                         .filter(Boolean)
                         .map((video, idx) => (
                           <div className="blog-item" key={video.id + '_' + idx}>
-                            <a
-                              href={video.link}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                            >
+                            <a href={video.link} target="_blank" rel="noopener noreferrer">
                               <img
                                 src={`https://img.youtube.com/vi/${getYouTubeId(video.link)}/hqdefault.jpg`}
                                 alt={video.titulo}
