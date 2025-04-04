@@ -1,5 +1,4 @@
-// App.js
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import './App.css';
 
@@ -41,16 +40,51 @@ function getYouTubeId(url) {
   return match ? match[1] : null;
 }
 
+/**
+ * Função para calcular o token conforme a regra definida na sua API (script do Postman).
+ */
+function computeToken() {
+  const dataAtual = new Date();
+  const diaAtual = ('0' + dataAtual.getDate()).slice(-2);
+  const horaAtual = ('0' + dataAtual.getHours()).slice(-2);
+  const minutoAtual = ('0' + dataAtual.getMinutes()).slice(-2);
+  return diaAtual + 'HT%s7wq$5a@51' + horaAtual + 'kas93jJD9(01$3!1' + minutoAtual + '4aeT5$a%';
+}
+
 function App() {
   const { t, i18n } = useTranslation();
   const [openIndex, setOpenIndex] = useState(null);
+  const [videos, setVideos] = useState([]);
 
-  // Função para trocar o idioma
+  // Ref para o carrossel
+  const carouselRef = useRef(null);
+
+  // Busca os vídeos da API usando um IDUsuario fixo (-1) e um token calculado
+  useEffect(() => {
+    const fetchVideos = async () => {
+      try {
+        const tokenString = computeToken();
+        const response = await fetch("https://cafecomfinancasoficial.com/FinancasAPI/API/VideosYoutube/ListarTodos", {
+          method: 'GET',
+          headers: {
+            'IDUsuario': '-1',
+            'Token': tokenString
+          }
+        });
+        const data = await response.json();
+        setVideos(data);
+      } catch (error) {
+        console.error('Erro ao buscar vídeos', error);
+      }
+    };
+
+    fetchVideos();
+  }, []);
+
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
   };
 
-  // Função para scroll suave; se for 'hero' (ou 'home'), rola até o topo.
   const scrollToSection = (sectionId) => {
     if (sectionId === 'hero') {
       window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -62,7 +96,7 @@ function App() {
     }
   };
 
-  // Ícones para a seção de Features
+  // Ícones das features
   const featureIcons = [
     <FiShield size={40} />,
     <FiClock size={40} />,
@@ -71,6 +105,19 @@ function App() {
     <FiZap size={40} />,
     <FiThumbsUp size={40} />
   ];
+
+  // Funções para rolar o carrossel horizontalmente
+  const scrollLeft = () => {
+    if (carouselRef.current) {
+      carouselRef.current.scrollLeft -= 350;
+    }
+  };
+
+  const scrollRight = () => {
+    if (carouselRef.current) {
+      carouselRef.current.scrollLeft += 350;
+    }
+  };
 
   return (
     <div className="App">
@@ -195,26 +242,55 @@ function App() {
         </div>
       </section>
 
-      {/* BLOG SECTION */}
+      {/* VIDEOS / BLOG SECTION (CARROSSEL) */}
       <section id="blog" className="blog-section">
-        <h2 className="blog-title">{t('blogSection.heading')}</h2>
-        <p className="blog-subtitle">{t('blogSection.subtitle')}</p>
-        <div className="blog-grid">
-          {t('blogSection.items', { returnObjects: true }).map((item, index) => {
-            const videoId = getYouTubeId(item.link);
-            const youtubeThumbnail = videoId
-              ? `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`
-              : item.image;
-            return (
-              <div className="blog-item" key={index}>
-                <a href={item.link} target="_blank" rel="noopener noreferrer">
-                  <img src={youtubeThumbnail} alt={item.title} />
-                </a>
-                <h3>{item.title}</h3>
-                <p>{item.description}</p>
-              </div>
-            );
-          })}
+        <h2 className="blog-title">Vídeos</h2>
+        <p className="blog-subtitle">Confira nossos vídeos de demonstração.</p>
+
+        {/* Wrapper que permite setas fora do container sem cortar */}
+        <div className="carousel-wrapper">
+          <button className="carousel-arrow left" onClick={scrollLeft}>
+            &lt;
+          </button>
+
+          {/* Container que controla o overflow horizontal */}
+          <div className="carousel-container">
+            <div className="carousel" ref={carouselRef}>
+              {(() => {
+                // Vamos criar colunas, cada uma com 2 vídeos
+                const columns = [];
+                for (let i = 0; i < videos.length; i += 2) {
+                  columns.push(
+                    <div className="video-column" key={`col-${i}`}>
+                      {[videos[i], videos[i + 1]]
+                        .filter(Boolean)
+                        .map((video, idx) => (
+                          <div className="blog-item" key={video.id + '_' + idx}>
+                            <a
+                              href={video.link}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              <img
+                                src={`https://img.youtube.com/vi/${getYouTubeId(video.link)}/hqdefault.jpg`}
+                                alt={video.titulo}
+                              />
+                            </a>
+                            <h3>{video.titulo}</h3>
+                            <p>{video.descricao}</p>
+                          </div>
+                        ))}
+                    </div>
+                  );
+                }
+                return columns;
+              })()}
+            </div>
+          </div>
+
+          <button className="carousel-arrow right" onClick={scrollRight}>
+            &gt;
+          </button>
         </div>
       </section>
 
@@ -239,7 +315,10 @@ function App() {
         <p className="pricing-subtitle">{t('pricing.subtitle')}</p>
         <div className="pricing-cards">
           {t('pricing.plans', { returnObjects: true }).map((plan, index) => (
-            <div className={`pricing-card ${index === 1 ? 'highlight' : ''}`} key={index}>
+            <div
+              className={`pricing-card ${index === 1 ? 'highlight' : ''}`}
+              key={index}
+            >
               <h3>{plan.title}</h3>
               <h4>
                 {plan.price} <span>/{plan.period}</span>
@@ -299,7 +378,11 @@ function App() {
             </div>
           </div>
           <div className="download-image">
-            <img src={smartphoneImg} alt="Smartphone" className="smartphone-image" />
+            <img
+              src={smartphoneImg}
+              alt="Smartphone"
+              className="smartphone-image"
+            />
           </div>
         </div>
       </section>
@@ -311,15 +394,35 @@ function App() {
             <h2>{t('contactSection.title')}</h2>
             <p>{t('contactSection.subtitle')}</p>
             <form onSubmit={(e) => e.preventDefault()}>
-              <input type="text" placeholder={t('contactSection.placeholderName')} required />
-              <input type="email" placeholder={t('contactSection.placeholderEmail')} required />
-              <input type="text" placeholder={t('contactSection.placeholderSubject')} required />
-              <textarea placeholder={t('contactSection.placeholderMessage')} rows="5" required />
+              <input
+                type="text"
+                placeholder={t('contactSection.placeholderName')}
+                required
+              />
+              <input
+                type="email"
+                placeholder={t('contactSection.placeholderEmail')}
+                required
+              />
+              <input
+                type="text"
+                placeholder={t('contactSection.placeholderSubject')}
+                required
+              />
+              <textarea
+                placeholder={t('contactSection.placeholderMessage')}
+                rows="5"
+                required
+              />
               <button type="submit">{t('contactSection.sendButton')}</button>
             </form>
           </div>
           <div className="contact-illustration">
-            <img src={contactIllustration} alt="Contact Illustration" className="contact-image" />
+            <img
+              src={contactIllustration}
+              alt="Contact Illustration"
+              className="contact-image"
+            />
           </div>
         </div>
       </section>
@@ -344,13 +447,25 @@ function App() {
           </button>
         </div>
         <div className="footer-social">
-          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+          <a
+            href="https://facebook.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <FaFacebookF />
           </a>
-          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+          <a
+            href="https://twitter.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <FaTwitter />
           </a>
-          <a href="https://youtube.com" target="_blank" rel="noopener noreferrer">
+          <a
+            href="https://youtube.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <FaYoutube />
           </a>
         </div>

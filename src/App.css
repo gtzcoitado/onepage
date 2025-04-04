@@ -902,3 +902,113 @@
     flex-direction: column;
   }
 }
+
+/* BLOG – Carrossel com 2 vídeos por coluna e 3 colunas visíveis */
+.blog-section {
+  padding: 4rem 2rem;
+  background-color: var(--white);
+  text-align: center;
+}
+
+.blog-title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+}
+
+.blog-subtitle {
+  font-size: 1rem;
+  color: #666;
+  max-width: 700px;
+  margin: 0 auto 3rem;
+  line-height: 1.5;
+}
+
+/* ====== WRAPPER ====== */
+.carousel-wrapper {
+  position: relative;
+  max-width: 1200px; /* Ajuste se quiser */
+  margin: 0 auto;
+  overflow: visible; /* Importante: para as setas “saírem” */
+}
+
+/* Container que efetivamente “corta” o carrossel */
+.carousel-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden; /* rolagem horizontal oculta */
+}
+
+/* Carrossel em si */
+.carousel {
+  display: flex;
+  gap: 2rem;
+  scroll-behavior: smooth;
+  /* Se quiser padding aqui também, tudo bem */
+  padding-bottom: 1rem;
+  overflow-x: auto;
+}
+
+.video-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  min-width: 250px; 
+  flex-shrink: 0;
+}
+
+/* Cada card de vídeo */
+.blog-item {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+  text-align: left;
+  overflow: hidden;
+}
+
+.blog-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+/* SETAS fora do container */
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: none;
+  background: #fff;
+  color: #333;
+  font-size: 22px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 10;
+  opacity: 0.8;
+  box-shadow: 0 0 10px rgba(0,0,0,0.15);
+  transition: background-color 0.2s ease;
+}
+
+/* Ajuste para sumir a rolagem do Chrome */
+.carousel::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hover nas setas */
+.carousel-arrow:hover {
+  opacity: 1;
+  background-color: #333;
+  color: #fff;
+}
+
+/* Posicionar as setas com valores negativos (ou não) */
+.carousel-arrow.left {
+  left: -10rem; /* Ajuste para “sair” do container */
+}
+
+.carousel-arrow.right {
+  right: -10rem;
+}
