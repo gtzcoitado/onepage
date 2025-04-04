@@ -28,35 +28,59 @@ function AdminPage() {
     );
   };
 
-  // LOGIN
   const handleLogin = (e) => {
     e.preventDefault();
+  
+    // 1) Monta token
     const tokenString = computeToken();
     const url = `https://cafecomfinancasoficial.com/FinancasAPI/API/Token/ValidaLoginAdm?Login=${username}&Senha=${password}&Token=${tokenString}`;
-
+  
     fetch(url, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ login: username, senha: password, token: tokenString })
     })
       .then((res) => {
-        if (!res.ok) throw new Error('Login falhou');
+        if (!res.ok) throw new Error('Login ou senha incorretos!');
         return res.json();
       })
       .then((data) => {
-        if (data && data.length > 0) {
-          setToken(data[0].token);
-          setIdUsuario(data[0].idUsuario);
-          setIsLoggedIn(true);
-        } else {
-          throw new Error('Resposta de login inválida');
+        if (!data || data.length === 0) {
+          throw new Error('Nenhuma resposta. Verifique as credenciais.');
         }
+  
+        // Pega token e idUsuario retornados
+        const usuario = data[0];
+        const myToken = usuario.token;
+        const myIdUsuario = usuario.idUsuario;
+  
+        // 2) Testa se o token realmente funciona
+        return fetch("https://cafecomfinancasoficial.com/FinancasAPI/API/VideosYoutube/ListarTodos", {
+          method: 'GET',
+          headers: {
+            'IDUsuario': myIdUsuario,
+            'Token': myToken
+          }
+        })
+          .then((res) => {
+            // Se falhar, assume que a senha está errada
+            if (!res.ok) throw new Error('Login ou senha incorretos!');
+            return res.json();
+          })
+          .then(() => {
+            // Se chegou aqui, então o token é mesmo válido
+            setToken(myToken);
+            setIdUsuario(myIdUsuario);
+            setIsLoggedIn(true);
+          });
       })
       .catch((err) => {
-        alert('Credenciais inválidas!');
+        alert(err.message || 'Login ou senha incorretos!');
         console.error(err);
       });
   };
+  
+  
 
   // LOGOUT
   const handleLogout = () => {

@@ -125,7 +125,7 @@ function App() {
       <header className="header">
         <div className="header-left">
           <img src={logo} alt="Logo" className="site-logo" />
-          <div className="logo-text">Treact</div>
+          <div className="logo-text"></div>
         </div>
         <nav className="header-nav">
           <button onClick={() => scrollToSection('about')}>

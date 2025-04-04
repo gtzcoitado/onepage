@@ -39,7 +39,7 @@
 }
 
 .site-logo {
-  width: 80px;
+  width: 100px;
   height: auto;
   object-fit: contain;
 }
@@ -1004,11 +1004,20 @@
   color: #fff;
 }
 
-/* Posicionar as setas com valores negativos (ou não) */
+/* Posição das setas em telas grandes */
 .carousel-arrow.left {
-  left: -10rem; /* Ajuste para “sair” do container */
+  left: -3rem; /* fora do container */
+}
+.carousel-arrow.right {
+  right: -3rem;
 }
 
-.carousel-arrow.right {
-  right: -10rem;
+/* Em telas menores que 768px: traz as setas para dentro */
+@media (max-width: 768px) {
+  .carousel-arrow.left {
+    left: 0.5rem; /* ou 1rem */
+  }
+  .carousel-arrow.right {
+    right: 0.5rem;
+  }
 }
