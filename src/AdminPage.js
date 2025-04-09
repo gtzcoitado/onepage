@@ -33,7 +33,7 @@ function AdminPage() {
   
     // 1) Monta token
     const tokenString = computeToken();
-    const url = `https://cafecomfinancasoficial.com/FinancasAPI/API/Token/ValidaLoginAdm?Login=${username}&Senha=${password}&Token=${tokenString}`;
+    const url = `https://api.cafecomfinancasoficial.com/FinancasAPI/API/Token/ValidaLoginAdm?Login=${username}&Senha=${password}&Token=${tokenString}`;
   
     fetch(url, {
       method: 'POST',
@@ -55,7 +55,7 @@ function AdminPage() {
         const myIdUsuario = usuario.idUsuario;
   
         // 2) Testa se o token realmente funciona
-        return fetch("https://cafecomfinancasoficial.com/FinancasAPI/API/VideosYoutube/ListarTodos", {
+        return fetch("https://api.cafecomfinancasoficial.com/FinancasAPI/API/VideosYoutube/ListarTodos", {
           method: 'GET',
           headers: {
             'IDUsuario': myIdUsuario,
@@ -92,7 +92,7 @@ function AdminPage() {
   // BUSCA VÍDEOS
   const fetchVideos = () => {
     if (!idUsuario || !token) return;
-    fetch('https://cafecomfinancasoficial.com/FinancasAPI/API/VideosYoutube/ListarTodos', {
+    fetch('https://api.cafecomfinancasoficial.com/FinancasAPI/API/VideosYoutube/ListarTodos', {
       method: 'GET',
       headers: {
         IDUsuario: idUsuario,
@@ -125,7 +125,7 @@ function AdminPage() {
       descricao: newVideo.descricao,
       link: newVideo.link
     };
-    fetch('https://cafecomfinancasoficial.com/FinancasAPI/API/VideosYoutube/Salvar', {
+    fetch('https://api.cafecomfinancasoficial.com/FinancasAPI/API/VideosYoutube/Salvar', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -155,7 +155,7 @@ function AdminPage() {
 
   // DELETAR
   const handleDeleteVideo = (videoId) => {
-    fetch('https://cafecomfinancasoficial.com/FinancasAPI/API/VideosYoutube/Excluir', {
+    fetch('https://api.cafecomfinancasoficial.com/FinancasAPI/API/VideosYoutube/Excluir', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -204,7 +204,7 @@ function AdminPage() {
       descricao: editVideo.descricao,
       link: editVideo.link
     };
-    fetch('https://cafecomfinancasoficial.com/FinancasAPI/API/VideosYoutube/Salvar', {
+    fetch('https://api.cafecomfinancasoficial.com/FinancasAPI/API/VideosYoutube/Salvar', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

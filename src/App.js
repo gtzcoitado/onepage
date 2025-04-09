@@ -65,7 +65,7 @@ function App() {
       try {
         const tokenString = computeToken();
         const response = await fetch(
-          "https://cafecomfinancasoficial.com/FinancasAPI/API/VideosYoutube/ListarTodos",
+          "https://api.cafecomfinancasoficial.com/FinancasAPI/API/VideosYoutube/ListarTodos",
           {
             method: 'GET',
             headers: {
